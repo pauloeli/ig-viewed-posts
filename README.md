@@ -1,3 +1,5 @@
+<img src="resources/images/ig-posts-view.png" alt="Instagram Viewed Posts Manager" align="left" width="232" height="249" style="margin-right: 5px">
+
 # Instagram Viewed Posts Manager
 
 A tool to manage and highlight viewed posts on Instagram.
