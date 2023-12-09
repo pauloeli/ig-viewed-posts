@@ -88,7 +88,9 @@ const InstagramViewedPostsManager = (() => {
 
     function applyVisualEffectsOnPost(postCode: string): void {
         isPostsViewed(postCode).then((viewed: boolean) => {
-            const imageElement = document.querySelector(`a[href='/p/${postCode}/']`) as HTMLElement;
+            const imageElement = document.querySelector(`a[href='/p/${postCode}/']`) as HTMLElement
+                || document.querySelector(`a[href='/reel/${postCode}/']`) as HTMLElement;
+
             if (imageElement && imageElement.style) {
                 imageElement.style.opacity = viewed ? '0.5' : '1.0';
             }
