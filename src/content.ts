@@ -88,8 +88,8 @@ const InstagramViewedPostsManager = (() => {
 
     function applyVisualEffectsOnPost(postCode: string): void {
         isPostsViewed(postCode).then((viewed: boolean) => {
-            const imageElement = document.querySelector(`a[href='/p/${postCode}/']`) as HTMLElement
-                || document.querySelector(`a[href='/reel/${postCode}/']`) as HTMLElement;
+            const imageElement = document.querySelector(`a[href='/reel/${postCode}/']`) as HTMLElement
+                || document.querySelector(`a[href='/p/${postCode}/']`) as HTMLElement;
 
             if (imageElement && imageElement.style) {
                 imageElement.style.opacity = viewed ? '0.5' : '1.0';
@@ -105,8 +105,9 @@ const InstagramViewedPostsManager = (() => {
     function initializeObserver(): void {
         const observer: MutationObserver = new MutationObserver((_: MutationRecord[], observer: MutationObserver) => {
             const splashScreen: HTMLElement | null = document.getElementById('splash-screen');
+            const progressbar: HTMLElement | null = document.querySelector('[role=\'progressbar\']');
 
-            if (splashScreen && getComputedStyle(splashScreen).display === 'none') {
+            if (splashScreen && getComputedStyle(splashScreen).display === 'none' && !progressbar) {
                 observer.disconnect();
 
                 detectPosts();
@@ -117,7 +118,7 @@ const InstagramViewedPostsManager = (() => {
     }
 
     function detectPosts(): void {
-        const posts: NodeListOf<Element> = document.querySelectorAll('div._aabd._aa8k._al3l > a');
+        const posts: NodeListOf<Element> = document.querySelectorAll('div._aabd._aa8k > a');
         posts.forEach(post => {
             addViewedButtonIfNotExists(post);
 

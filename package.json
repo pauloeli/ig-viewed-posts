@@ -1,6 +1,6 @@
 {
   "name": "instagram-viewed-posts",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A Chrome Extension to keep track of viewed posts on Instagram.",
   "main": "index.js",
   "scripts": {
